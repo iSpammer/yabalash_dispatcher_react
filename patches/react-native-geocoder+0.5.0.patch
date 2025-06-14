@@ -1,0 +1,271 @@
+diff --git a/node_modules/react-native-geocoder/android/build.gradle b/node_modules/react-native-geocoder/android/build.gradle
+index 8a174dc..9c5a31b 100644
+--- a/node_modules/react-native-geocoder/android/build.gradle
++++ b/node_modules/react-native-geocoder/android/build.gradle
+@@ -1,7 +1,7 @@
+ apply plugin: 'com.android.library'
+ 
+ android {
+-    compileSdkVersion 25
++    compileSdkVersion 34
+     buildToolsVersion "25.0.2"
+ 
+     defaultConfig {
+@@ -16,6 +16,6 @@ android {
+ }
+ 
+ dependencies {
+-    compile fileTree(include: ['*.jar'], dir: 'libs')
+-    compile "com.facebook.react:react-native:+"
++    implementation fileTree(include: ['*.jar'], dir: 'libs')
++    implementation "com.facebook.react:react-native:+"
+ }
+diff --git a/node_modules/react-native-geocoder/android/build/.transforms/1e7a66a3ee0283cbe076b112c4552d93/results.bin b/node_modules/react-native-geocoder/android/build/.transforms/1e7a66a3ee0283cbe076b112c4552d93/results.bin
+new file mode 100644
+index 0000000..61a58fa
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/.transforms/1e7a66a3ee0283cbe076b112c4552d93/results.bin
+@@ -0,0 +1 @@
++i/classes_dex
+diff --git a/node_modules/react-native-geocoder/android/build/.transforms/38af503d829671d2025781addfc0f55c/results.bin b/node_modules/react-native-geocoder/android/build/.transforms/38af503d829671d2025781addfc0f55c/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/.transforms/38af503d829671d2025781addfc0f55c/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/react-native-geocoder/android/build/.transforms/38af503d829671d2025781addfc0f55c/transformed/classes/classes_dex/classes.dex b/node_modules/react-native-geocoder/android/build/.transforms/38af503d829671d2025781addfc0f55c/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..25b23fe
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/.transforms/38af503d829671d2025781addfc0f55c/transformed/classes/classes_dex/classes.dex differ
+diff --git a/node_modules/react-native-geocoder/android/build/.transforms/3ea1c10e712a79792474b294dcdd4736/results.bin b/node_modules/react-native-geocoder/android/build/.transforms/3ea1c10e712a79792474b294dcdd4736/results.bin
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/react-native-geocoder/android/build/.transforms/52423877b3385304ef9ffffbcede011e/results.bin b/node_modules/react-native-geocoder/android/build/.transforms/52423877b3385304ef9ffffbcede011e/results.bin
+new file mode 100644
+index 0000000..e3f0ff0
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/.transforms/52423877b3385304ef9ffffbcede011e/results.bin
+@@ -0,0 +1 @@
++i/classes_global-synthetics
+diff --git a/node_modules/react-native-geocoder/android/build/generated/source/buildConfig/release/com/devfd/RNGeocoder/BuildConfig.java b/node_modules/react-native-geocoder/android/build/generated/source/buildConfig/release/com/devfd/RNGeocoder/BuildConfig.java
+new file mode 100644
+index 0000000..a10aa12
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/generated/source/buildConfig/release/com/devfd/RNGeocoder/BuildConfig.java
+@@ -0,0 +1,10 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.devfd.RNGeocoder;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = false;
++  public static final String LIBRARY_PACKAGE_NAME = "com.devfd.RNGeocoder";
++  public static final String BUILD_TYPE = "release";
++}
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/AndroidManifest.xml b/node_modules/react-native-geocoder/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..8e5ec7b
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.devfd.RNGeocoder" >
++
++    <uses-sdk android:minSdkVersion="16" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/output-metadata.json b/node_modules/react-native-geocoder/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/output-metadata.json
+new file mode 100644
+index 0000000..2166a20
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "com.devfd.RNGeocoder",
++  "variantName": "release",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/aar_metadata/release/aar-metadata.properties b/node_modules/react-native-geocoder/android/build/intermediates/aar_metadata/release/aar-metadata.properties
+new file mode 100644
+index 0000000..776557e
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/aar_metadata/release/aar-metadata.properties
+@@ -0,0 +1,5 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/annotation_processor_list/release/annotationProcessors.json b/node_modules/react-native-geocoder/android/build/intermediates/annotation_processor_list/release/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/annotation_processor_list/release/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/compile_library_classes_jar/release/classes.jar b/node_modules/react-native-geocoder/android/build/intermediates/compile_library_classes_jar/release/classes.jar
+new file mode 100644
+index 0000000..08b6516
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/intermediates/compile_library_classes_jar/release/classes.jar differ
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/compile_r_class_jar/release/R.jar b/node_modules/react-native-geocoder/android/build/intermediates/compile_r_class_jar/release/R.jar
+new file mode 100644
+index 0000000..43ec5a5
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/intermediates/compile_r_class_jar/release/R.jar differ
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/compile_symbol_list/release/R.txt b/node_modules/react-native-geocoder/android/build/intermediates/compile_symbol_list/release/R.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml b/node_modules/react-native-geocoder/android/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..410f9b1
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/jniLibs"/></dataSet><dataSet config="release" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/release/jniLibs"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/incremental/mergeReleaseShaders/merger.xml b/node_modules/react-native-geocoder/android/build/intermediates/incremental/mergeReleaseShaders/merger.xml
+new file mode 100644
+index 0000000..6437b0b
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/incremental/mergeReleaseShaders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/shaders"/></dataSet><dataSet config="release" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/release/shaders"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/incremental/packageReleaseAssets/merger.xml b/node_modules/react-native-geocoder/android/build/intermediates/incremental/packageReleaseAssets/merger.xml
+new file mode 100644
+index 0000000..26f498e
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/incremental/packageReleaseAssets/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/assets"/></dataSet><dataSet config="release" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/release/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/build/intermediates/shader_assets/release/out"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties b/node_modules/react-native-geocoder/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties
+new file mode 100644
+index 0000000..83d761b
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Mon Apr 22 15:22:33 IST 2024
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/incremental/release/packageReleaseResources/merger.xml b/node_modules/react-native-geocoder/android/build/intermediates/incremental/release/packageReleaseResources/merger.xml
+new file mode 100644
+index 0000000..76cffae
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/incremental/release/packageReleaseResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="release$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/release/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="release" generated-set="release$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/release/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/build/generated/res/resValues/release"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/build/generated/res/resValues/release"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/BuildConfig.class b/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/BuildConfig.class
+new file mode 100644
+index 0000000..3ec1208
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/BuildConfig.class differ
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/RNGeocoderModule.class b/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/RNGeocoderModule.class
+new file mode 100644
+index 0000000..551db47
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/RNGeocoderModule.class differ
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/RNGeocoderPackage.class b/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/RNGeocoderPackage.class
+new file mode 100644
+index 0000000..a5ec67a
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/intermediates/javac/release/classes/com/devfd/RNGeocoder/RNGeocoderPackage.class differ
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/local_only_symbol_list/release/R-def.txt b/node_modules/react-native-geocoder/android/build/intermediates/local_only_symbol_list/release/R-def.txt
+new file mode 100644
+index 0000000..78ac5b8
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/local_only_symbol_list/release/R-def.txt
+@@ -0,0 +1,2 @@
++R_DEF: Internal format may change without notice
++local
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt b/node_modules/react-native-geocoder/android/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt
+new file mode 100644
+index 0000000..66fd874
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt
+@@ -0,0 +1,7 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    package="com.devfd.RNGeocoder" >
++4
++5    <uses-sdk android:minSdkVersion="16" />
++6
++7</manifest>
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/merged_manifest/release/AndroidManifest.xml b/node_modules/react-native-geocoder/android/build/intermediates/merged_manifest/release/AndroidManifest.xml
+new file mode 100644
+index 0000000..8e5ec7b
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/merged_manifest/release/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.devfd.RNGeocoder" >
++
++    <uses-sdk android:minSdkVersion="16" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/navigation_json/release/navigation.json b/node_modules/react-native-geocoder/android/build/intermediates/navigation_json/release/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/navigation_json/release/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/runtime_library_classes_jar/release/classes.jar b/node_modules/react-native-geocoder/android/build/intermediates/runtime_library_classes_jar/release/classes.jar
+new file mode 100644
+index 0000000..ce282f8
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/intermediates/runtime_library_classes_jar/release/classes.jar differ
+diff --git a/node_modules/react-native-geocoder/android/build/intermediates/symbol_list_with_package_name/release/package-aware-r.txt b/node_modules/react-native-geocoder/android/build/intermediates/symbol_list_with_package_name/release/package-aware-r.txt
+new file mode 100644
+index 0000000..af45738
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/intermediates/symbol_list_with_package_name/release/package-aware-r.txt
+@@ -0,0 +1 @@
++com.devfd.RNGeocoder
+diff --git a/node_modules/react-native-geocoder/android/build/outputs/logs/manifest-merger-release-report.txt b/node_modules/react-native-geocoder/android/build/outputs/logs/manifest-merger-release-report.txt
+new file mode 100644
+index 0000000..ff93669
+--- /dev/null
++++ b/node_modules/react-native-geocoder/android/build/outputs/logs/manifest-merger-release-report.txt
+@@ -0,0 +1,17 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml:1:1-4:12
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml:1:1-4:12
++	package
++		ADDED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml:2:5-35
++		INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml
++	xmlns:android
++		ADDED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml:1:11-69
++uses-sdk
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/react-native-geocoder/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/react-native-geocoder/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin b/node_modules/react-native-geocoder/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..21098f9
+Binary files /dev/null and b/node_modules/react-native-geocoder/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin differ

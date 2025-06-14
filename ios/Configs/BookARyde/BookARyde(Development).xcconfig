@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-BookARyde/Pods-available_pods-BookARyde.debug.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.Bookaryde.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 11
+PROJECT_APP_NAME =Book-A-Ryde Dispatcher
+PROJECT_PLIST =BookARydeInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

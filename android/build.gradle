@@ -1,0 +1,37 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+         buildToolsVersion = "34.0.0"
+        minSdkVersion = 23
+        compileSdkVersion = 34
+        targetSdkVersion = 34
+        googlePlayServicesAuthVersion = "16.0.1" // <--- use this version or newer
+        playServicesVersion="17.0.0"
+        ndkVersion = "26.1.10909125"
+        kotlinVersion = "1.9.22"
+        playServicesLocationVersion = "21.0.1"
+
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+       classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
+        classpath 'com.google.gms:google-services:4.3.14' 
+    }
+    allprojects {
+    repositories {
+        maven {
+            url 'https://zendesk.jfrog.io/zendesk/repo'
+            jcenter()
+        }
+        maven { url "$rootDir/../node_modules/@notifee/react-native/android/libs" }
+    }
+}
+}
+
+apply plugin: "com.facebook.react.rootproject"

@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "156850983935",
+    "project_id": "yabalash-dispatcher-b02e5",
+    "storage_bucket": "yabalash-dispatcher-b02e5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156850983935:android:b320bd5388a3bff398cdca",
+        "android_client_info": {
+          "package_name": "com.yabalash.dispatcher"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "156850983935-tskudrd53kh63u0nd38n5lvqfl7mv21k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLgX8JPzEej5RVMRK5BrzX3AcbZQR7wNI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "156850983935-tskudrd53kh63u0nd38n5lvqfl7mv21k.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "156850983935-fsvk2rd9beuktsqtcj0hgedgn33u07um.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.yabalash.dispatcher"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

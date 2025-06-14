@@ -1,0 +1,43 @@
+diff --git a/node_modules/react-native-parsed-text/src/ParsedText.js b/node_modules/react-native-parsed-text/src/ParsedText.js
+index d8a0cc5..f3c1688 100644
+--- a/node_modules/react-native-parsed-text/src/ParsedText.js
++++ b/node_modules/react-native-parsed-text/src/ParsedText.js
+@@ -3,7 +3,7 @@ import { Text } from 'react-native';
+ import PropTypes from 'prop-types';
+ 
+ import TextExtraction from './lib/TextExtraction';
+-
++import {TextPropTypes} from 'deprecated-react-native-prop-types'
+ /**
+  * This is a list of the known patterns that are provided by this library
+  * @typedef {('url'|'phone'|'email')} KnownParsePattern
+@@ -39,13 +39,13 @@ export const PATTERNS = {
+  * @property {Function} [onLongPress]
+  */
+ const defaultParseShape = PropTypes.shape({
+-  ...Text.propTypes,
++  ...TextPropTypes,
+   type: PropTypes.oneOf(Object.keys(PATTERNS)).isRequired,
+   nonExhaustiveMaxMatchCount: PropTypes.number,
+ });
+ 
+ const customParseShape = PropTypes.shape({
+-  ...Text.propTypes,
++  ...TextPropTypes,
+   pattern: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(RegExp)])
+     .isRequired,
+   nonExhaustiveMaxMatchCount: PropTypes.number,
+@@ -64,11 +64,11 @@ class ParsedText extends React.Component {
+   static displayName = 'ParsedText';
+ 
+   static propTypes = {
+-    ...Text.propTypes,
++    ...TextPropTypes,
+     parse: PropTypes.arrayOf(
+       PropTypes.oneOfType([defaultParseShape, customParseShape]),
+     ),
+-    childrenProps: PropTypes.shape(Text.propTypes),
++    childrenProps: PropTypes.shape(TextPropTypes),
+   };
+ 
+   static defaultProps = {

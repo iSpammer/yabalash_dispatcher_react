@@ -1,0 +1,293 @@
+diff --git a/node_modules/@react-native-community/clipboard/android/build/.transforms/041cfeda08c5c36490c102100016195b/results.bin b/node_modules/@react-native-community/clipboard/android/build/.transforms/041cfeda08c5c36490c102100016195b/results.bin
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-community/clipboard/android/build/.transforms/1e766151b8c617d4454e2c600d8092c4/results.bin b/node_modules/@react-native-community/clipboard/android/build/.transforms/1e766151b8c617d4454e2c600d8092c4/results.bin
+new file mode 100644
+index 0000000..61a58fa
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/.transforms/1e766151b8c617d4454e2c600d8092c4/results.bin
+@@ -0,0 +1 @@
++i/classes_dex
+diff --git a/node_modules/@react-native-community/clipboard/android/build/.transforms/48e764e1ff94d89137f6cd6786748e57/results.bin b/node_modules/@react-native-community/clipboard/android/build/.transforms/48e764e1ff94d89137f6cd6786748e57/results.bin
+new file mode 100644
+index 0000000..e3f0ff0
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/.transforms/48e764e1ff94d89137f6cd6786748e57/results.bin
+@@ -0,0 +1 @@
++i/classes_global-synthetics
+diff --git a/node_modules/@react-native-community/clipboard/android/build/.transforms/ebef9e503907047da31eff569fe4c334/results.bin b/node_modules/@react-native-community/clipboard/android/build/.transforms/ebef9e503907047da31eff569fe4c334/results.bin
+new file mode 100644
+index 0000000..0d259dd
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/.transforms/ebef9e503907047da31eff569fe4c334/results.bin
+@@ -0,0 +1 @@
++o/classes
+diff --git a/node_modules/@react-native-community/clipboard/android/build/.transforms/ebef9e503907047da31eff569fe4c334/transformed/classes/classes_dex/classes.dex b/node_modules/@react-native-community/clipboard/android/build/.transforms/ebef9e503907047da31eff569fe4c334/transformed/classes/classes_dex/classes.dex
+new file mode 100644
+index 0000000..d8cbf01
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/.transforms/ebef9e503907047da31eff569fe4c334/transformed/classes/classes_dex/classes.dex differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/generated/source/buildConfig/release/com/reactnativecommunity/clipboard/BuildConfig.java b/node_modules/@react-native-community/clipboard/android/build/generated/source/buildConfig/release/com/reactnativecommunity/clipboard/BuildConfig.java
+new file mode 100644
+index 0000000..efeb9b9
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/generated/source/buildConfig/release/com/reactnativecommunity/clipboard/BuildConfig.java
+@@ -0,0 +1,10 @@
++/**
++ * Automatically generated file. DO NOT MODIFY
++ */
++package com.reactnativecommunity.clipboard;
++
++public final class BuildConfig {
++  public static final boolean DEBUG = false;
++  public static final String LIBRARY_PACKAGE_NAME = "com.reactnativecommunity.clipboard";
++  public static final String BUILD_TYPE = "release";
++}
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/AndroidManifest.xml b/node_modules/@react-native-community/clipboard/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/AndroidManifest.xml
+new file mode 100644
+index 0000000..71948e2
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.reactnativecommunity.clipboard" >
++
++    <uses-sdk android:minSdkVersion="21" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/output-metadata.json b/node_modules/@react-native-community/clipboard/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/output-metadata.json
+new file mode 100644
+index 0000000..8403509
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/aapt_friendly_merged_manifests/release/aapt/output-metadata.json
+@@ -0,0 +1,18 @@
++{
++  "version": 3,
++  "artifactType": {
++    "type": "AAPT_FRIENDLY_MERGED_MANIFESTS",
++    "kind": "Directory"
++  },
++  "applicationId": "com.reactnativecommunity.clipboard",
++  "variantName": "release",
++  "elements": [
++    {
++      "type": "SINGLE",
++      "filters": [],
++      "attributes": [],
++      "outputFile": "AndroidManifest.xml"
++    }
++  ],
++  "elementType": "File"
++}
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/aar_metadata/release/aar-metadata.properties b/node_modules/@react-native-community/clipboard/android/build/intermediates/aar_metadata/release/aar-metadata.properties
+new file mode 100644
+index 0000000..776557e
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/aar_metadata/release/aar-metadata.properties
+@@ -0,0 +1,5 @@
++aarFormatVersion=1.0
++aarMetadataVersion=1.0
++minCompileSdk=1
++minCompileSdkExtension=0
++minAndroidGradlePluginVersion=1.0.0
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/annotation_processor_list/release/annotationProcessors.json b/node_modules/@react-native-community/clipboard/android/build/intermediates/annotation_processor_list/release/annotationProcessors.json
+new file mode 100644
+index 0000000..9e26dfe
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/annotation_processor_list/release/annotationProcessors.json
+@@ -0,0 +1 @@
++{}
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_library_classes_jar/release/classes.jar b/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_library_classes_jar/release/classes.jar
+new file mode 100644
+index 0000000..3b7bb27
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_library_classes_jar/release/classes.jar differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_r_class_jar/release/R.jar b/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_r_class_jar/release/R.jar
+new file mode 100644
+index 0000000..c89a01c
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_r_class_jar/release/R.jar differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_symbol_list/release/R.txt b/node_modules/@react-native-community/clipboard/android/build/intermediates/compile_symbol_list/release/R.txt
+new file mode 100644
+index 0000000..e69de29
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml
+new file mode 100644
+index 0000000..f741308
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/mergeReleaseJniLibFolders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/jniLibs"/></dataSet><dataSet config="release" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/release/jniLibs"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/mergeReleaseShaders/merger.xml b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/mergeReleaseShaders/merger.xml
+new file mode 100644
+index 0000000..d33ed05
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/mergeReleaseShaders/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/shaders"/></dataSet><dataSet config="release" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/release/shaders"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/packageReleaseAssets/merger.xml b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/packageReleaseAssets/merger.xml
+new file mode 100644
+index 0000000..4da462b
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/packageReleaseAssets/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet config="main" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/assets"/></dataSet><dataSet config="release" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/release/assets"/></dataSet><dataSet config="generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/build/intermediates/shader_assets/release/out"/></dataSet></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties
+new file mode 100644
+index 0000000..3e6f1ff
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/release/packageReleaseResources/compile-file-map.properties
+@@ -0,0 +1 @@
++#Mon Apr 22 15:22:27 IST 2024
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/release/packageReleaseResources/merger.xml b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/release/packageReleaseResources/merger.xml
+new file mode 100644
+index 0000000..71a7573
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/incremental/release/packageReleaseResources/merger.xml
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="release$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/release/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="release" generated-set="release$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/release/res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/build/generated/res/resValues/release"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="/Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/build/generated/res/resValues/release"/></dataSet><mergedItems/></merger>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/BuildConfig.class b/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/BuildConfig.class
+new file mode 100644
+index 0000000..0ffb570
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/BuildConfig.class differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/ClipboardModule.class b/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/ClipboardModule.class
+new file mode 100644
+index 0000000..362b5f8
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/ClipboardModule.class differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/ClipboardPackage.class b/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/ClipboardPackage.class
+new file mode 100644
+index 0000000..4599661
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/intermediates/javac/release/classes/com/reactnativecommunity/clipboard/ClipboardPackage.class differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/local_only_symbol_list/release/R-def.txt b/node_modules/@react-native-community/clipboard/android/build/intermediates/local_only_symbol_list/release/R-def.txt
+new file mode 100644
+index 0000000..78ac5b8
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/local_only_symbol_list/release/R-def.txt
+@@ -0,0 +1,2 @@
++R_DEF: Internal format may change without notice
++local
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt b/node_modules/@react-native-community/clipboard/android/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt
+new file mode 100644
+index 0000000..68afb5d
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/manifest_merge_blame_file/release/manifest-merger-blame-release-report.txt
+@@ -0,0 +1,7 @@
++1<?xml version="1.0" encoding="utf-8"?>
++2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++3    package="com.reactnativecommunity.clipboard" >
++4
++5    <uses-sdk android:minSdkVersion="21" />
++6
++7</manifest>
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/release/AndroidManifest.xml b/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/release/AndroidManifest.xml
+new file mode 100644
+index 0000000..71948e2
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/merged_manifest/release/AndroidManifest.xml
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="com.reactnativecommunity.clipboard" >
++
++    <uses-sdk android:minSdkVersion="21" />
++
++</manifest>
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/navigation_json/release/navigation.json b/node_modules/@react-native-community/clipboard/android/build/intermediates/navigation_json/release/navigation.json
+new file mode 100644
+index 0000000..0637a08
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/navigation_json/release/navigation.json
+@@ -0,0 +1 @@
++[]
+\ No newline at end of file
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/runtime_library_classes_jar/release/classes.jar b/node_modules/@react-native-community/clipboard/android/build/intermediates/runtime_library_classes_jar/release/classes.jar
+new file mode 100644
+index 0000000..f2a72f6
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/intermediates/runtime_library_classes_jar/release/classes.jar differ
+diff --git a/node_modules/@react-native-community/clipboard/android/build/intermediates/symbol_list_with_package_name/release/package-aware-r.txt b/node_modules/@react-native-community/clipboard/android/build/intermediates/symbol_list_with_package_name/release/package-aware-r.txt
+new file mode 100644
+index 0000000..f2ab9fa
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/intermediates/symbol_list_with_package_name/release/package-aware-r.txt
+@@ -0,0 +1 @@
++com.reactnativecommunity.clipboard
+diff --git a/node_modules/@react-native-community/clipboard/android/build/outputs/logs/manifest-merger-release-report.txt b/node_modules/@react-native-community/clipboard/android/build/outputs/logs/manifest-merger-release-report.txt
+new file mode 100644
+index 0000000..8ea1282
+--- /dev/null
++++ b/node_modules/@react-native-community/clipboard/android/build/outputs/logs/manifest-merger-release-report.txt
+@@ -0,0 +1,17 @@
++-- Merging decision tree log ---
++manifest
++ADDED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml:2:1-5:12
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml:2:1-5:12
++	package
++		ADDED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml:3:11-55
++		INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml
++	xmlns:android
++		ADDED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml:2:11-69
++uses-sdk
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml
++INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml
++	android:targetSdkVersion
++		INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml
++	android:minSdkVersion
++		INJECTED from /Users/yashchouhan/Desktop/codebrew/royoorders2.0/node_modules/@react-native-community/clipboard/android/src/main/AndroidManifest.xml
+diff --git a/node_modules/@react-native-community/clipboard/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin b/node_modules/@react-native-community/clipboard/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin
+new file mode 100644
+index 0000000..35513e0
+Binary files /dev/null and b/node_modules/@react-native-community/clipboard/android/build/tmp/compileReleaseJavaWithJavac/previous-compilation-data.bin differ
+diff --git a/node_modules/@react-native-community/clipboard/android/src/main/java/com/reactnativecommunity/clipboard/ClipboardModule.java b/node_modules/@react-native-community/clipboard/android/src/main/java/com/reactnativecommunity/clipboard/ClipboardModule.java
+index 4ecb0cb..82219e6 100644
+--- a/node_modules/@react-native-community/clipboard/android/src/main/java/com/reactnativecommunity/clipboard/ClipboardModule.java
++++ b/node_modules/@react-native-community/clipboard/android/src/main/java/com/reactnativecommunity/clipboard/ClipboardModule.java
+@@ -11,21 +11,24 @@ import android.content.ClipboardManager;
+ import android.content.ClipData;
+ import android.content.Context;
+ 
+-import com.facebook.react.bridge.ContextBaseJavaModule;
++import com.facebook.react.bridge.ReactContextBaseJavaModule;
+ import com.facebook.react.bridge.ReactMethod;
+ import com.facebook.react.bridge.Promise;
+ import com.facebook.react.module.annotations.ReactModule;
++import com.facebook.react.bridge.ReactApplicationContext;
+ 
+ /**
+  * A module that allows JS to get/set clipboard contents.
+  */
+ @ReactModule(name = ClipboardModule.NAME)
+-public class ClipboardModule extends ContextBaseJavaModule {
++public class ClipboardModule extends ReactContextBaseJavaModule {
+ 
+   public ClipboardModule(Context context) {
+-    super(context);
++  super(new ReactApplicationContext(context));
++  }
++  private ClipboardManager getClipboardService() {
++  return (ClipboardManager) getReactApplicationContext().getSystemService(getReactApplicationContext().CLIPBOARD_SERVICE);
+   }
+-
+   public static final String NAME = "RNCClipboard";
+ 
+   @Override
+@@ -33,10 +36,6 @@ public class ClipboardModule extends ContextBaseJavaModule {
+     return ClipboardModule.NAME;
+   }
+ 
+-  private ClipboardManager getClipboardService() {
+-    return (ClipboardManager) getContext().getSystemService(getContext().CLIPBOARD_SERVICE);
+-  }
+-
+   @ReactMethod
+   public void getString(Promise promise) {
+     try {

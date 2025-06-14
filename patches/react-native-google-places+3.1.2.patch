@@ -1,0 +1,71 @@
+diff --git a/node_modules/react-native-google-places/android/build.gradle b/node_modules/react-native-google-places/android/build.gradle
+index bbb42c6..4d0f745 100644
+--- a/node_modules/react-native-google-places/android/build.gradle
++++ b/node_modules/react-native-google-places/android/build.gradle
+@@ -49,4 +49,8 @@ dependencies {
+     implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+     implementation "com.android.support:support-v4:${supportLibVersion}"
+     implementation "com.google.code.findbugs:jsr305:3.0.2"
++    implementation('com.google.android.libraries.places:places:1.1.0') {
++        exclude group: 'com.android.volley'
++    }
++    implementation 'com.android.volley:volley:1.2.0'
+ }
+diff --git a/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesModule.java b/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesModule.java
+index b65868f..1627242 100644
+--- a/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesModule.java
++++ b/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesModule.java
+@@ -8,10 +8,10 @@ import android.text.TextUtils;
+ import android.util.Log;
+ import android.Manifest.permission;
+ import android.content.pm.PackageManager;
+-import android.support.annotation.Nullable;
+-import android.support.annotation.RequiresPermission;
+-import android.support.v4.content.ContextCompat;
+-import 	android.support.v4.app.ActivityCompat;
++import androidx.annotation.Nullable;
++import androidx.annotation.RequiresPermission;
++import androidx.core.content.ContextCompat;
++import 	androidx.core.app.ActivityCompat;
+ 
+ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+ import static android.Manifest.permission.ACCESS_WIFI_STATE;
+diff --git a/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesPlaceFieldEnum.java b/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesPlaceFieldEnum.java
+index 012eaca..859abe1 100644
+--- a/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesPlaceFieldEnum.java
++++ b/node_modules/react-native-google-places/android/src/main/java/com/arttitude360/reactnative/rngoogleplaces/RNGooglePlacesPlaceFieldEnum.java
+@@ -1,7 +1,7 @@
+ package com.arttitude360.reactnative.rngoogleplaces;
+ 
+ import android.util.SparseArray;
+-import android.support.annotation.Nullable;
++import androidx.annotation.Nullable;
+ 
+ import com.google.android.libraries.places.api.model.Place;
+ 
+diff --git a/node_modules/react-native-google-places/ios/NSMutableDictionary+GMSPlace.h b/node_modules/react-native-google-places/ios/NSMutableDictionary+GMSPlace.h
+index 8991707..e26669d 100644
+--- a/node_modules/react-native-google-places/ios/NSMutableDictionary+GMSPlace.h
++++ b/node_modules/react-native-google-places/ios/NSMutableDictionary+GMSPlace.h
+@@ -1,6 +1,6 @@
+ #import <Foundation/Foundation.h>
+ #import <GooglePlaces/GooglePlaces.h>
+-
++#import <GoogleMapsBase/GoogleMapsBase.h>
+ @interface NSMutableDictionary (GMSPlace)
+ 
+ + (instancetype)dictionaryWithGMSPlace:(GMSPlace*)place;
+diff --git a/node_modules/react-native-google-places/react-native-google-places.podspec b/node_modules/react-native-google-places/react-native-google-places.podspec
+index 7445c14..e211b1c 100644
+--- a/node_modules/react-native-google-places/react-native-google-places.podspec
++++ b/node_modules/react-native-google-places/react-native-google-places.podspec
+@@ -19,6 +19,6 @@ Pod::Spec.new do |s|
+   s.compiler_flags = '-DHAVE_GOOGLE_MAPS=1', '-fno-modules'
+ 
+   s.dependency 'React'
+-  s.dependency 'GooglePlaces', '~> 3.1.0'
+-  s.dependency 'GoogleMaps', '~> 3.1.0'
++  s.dependency 'GooglePlaces', '~> 3.5.0'
++  s.dependency 'GoogleMaps', '~> 3.5.0'
+ end
+\ No newline at end of file

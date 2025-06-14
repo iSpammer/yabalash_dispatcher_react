@@ -1,0 +1,9 @@
+#include "Pods/Target Support Files/Pods-available_pods-HeyBuddy/Pods-available_pods-HeyBuddy.release.xcconfig"
+
+
+PROJECT_BUNDLE_ID = com.HeyBuddy.Dispatch
+PROJECT_APP_VERSION = 1.0
+PROJECT_BUILD_NUMBER = 1
+PROJECT_APP_NAME =HeyBuddy Dispatcher
+PROJECT_PLIST =HeyBuddyInfo
+PROJECT_ENTITLEMENT=RoyoDriverAppRelease

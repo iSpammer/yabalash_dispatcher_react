@@ -1,0 +1,97 @@
+
+
+# Resolve react_native_pods.rb with node to allow for hoisting
+def node_require(script)
+  # Resolve script with node to allow for hoisting
+  require Pod::Executable.execute_command('node', ['-p',
+    "require.resolve(
+     '#{script}',
+     {paths: [process.argv[1]]},
+    )", __dir__]).strip
+end
+node_require('react-native/scripts/react_native_pods.rb')
+node_require('react-native-permissions/scripts/setup.rb')
+ 
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+ 
+linkage = ENV['USE_FRAMEWORKS']
+if linkage != nil
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+
+abstract_target 'available_pods' do
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  rn_maps_path = '../node_modules/react-native-maps'
+  config = use_native_modules!
+  
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+  pod 'react-native-google-maps', :path => rn_maps_path
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+  pod 'rn-fetch-blob', :path => '../node_modules/rn-fetch-blob'
+  pod 'react-native-date-picker', :path => '../node_modules/react-native-date-picker'
+  pod 'ZendeskChatSDK'
+  pod'ZendeskChatProvidersSDK'
+  pod 'razorpay-pod', '1.2.5'
+
+  setup_permissions([
+   'AppTrackingTransparency',
+   'Bluetooth',
+   'Calendars',
+   'CalendarsWriteOnly',
+   'Camera',
+   'Contacts',
+   'FaceID',
+   'LocationAccuracy',
+   'LocationAlways',
+   'LocationWhenInUse',
+   'MediaLibrary',
+   'Microphone',
+   'Motion',
+   'Notifications',
+   'PhotoLibrary',
+   'PhotoLibraryAddOnly',
+   'Reminders',
+   'Siri',
+   'SpeechRecognition',
+   'StoreKit',
+])
+
+
+#Yabalash
+target 'Yabalash' do
+end
+
+
+post_install do |installer|
+  # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+  react_native_post_install(
+    installer,
+    config[:reactNativePath],
+    :mac_catalyst_enabled => false,
+    # :ccache_enabled => true
+  )
+  installer.pods_project.build_configurations.each do |config|
+    config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64"
+  end
+  installer.pods_project.targets.each do |target|
+    if target.respond_to?(:product_type) and target.product_type == "com.apple.product-type.bundle"
+      target.build_configurations.each do |config|
+          config.build_settings['CODE_SIGNING_ALLOWED'] = 'NO'
+      end
+    end
+  end
+  installer.pods_project.targets.each do |target|
+    if target.name == "React-Core.common-AccessibilityResources"
+      target.remove_from_project
+    end
+  end
+end
+end
+

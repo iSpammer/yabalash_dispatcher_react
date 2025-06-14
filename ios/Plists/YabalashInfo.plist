@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>BGTaskSchedulerPermittedIdentifiers</key>
+<array>
+<string>com.xamarin.ColorFeed.refresh</string>
+<string>com.xamarin.ColorFeed.cleaning_db</string>
+</array>
+<key>CFBundleDevelopmentRegion</key>
+<string>en</string>
+<key>CFBundleDisplayName</key>
+<string>$(PROJECT_APP_NAME)</string>
+<key>CFBundleExecutable</key>
+<string>$(EXECUTABLE_NAME)</string>
+<key>CFBundleIdentifier</key>
+<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+<key>CFBundleInfoDictionaryVersion</key>
+<string>6.0</string>
+<key>CFBundleName</key>
+<string>$(PRODUCT_NAME)</string>
+<key>CFBundlePackageType</key>
+<string>APPL</string>
+<key>CFBundleShortVersionString</key>
+<string>$(PROJECT_APP_VERSION)</string>
+<key>CFBundleSignature</key>
+<string>????</string>
+<key>CFBundleVersion</key>
+<string>$(CURRENT_PROJECT_VERSION)</string>
+<key>LSRequiresIPhoneOS</key>
+<true/>
+<key>NSAppTransportSecurity</key>
+<dict>
+<key>NSAllowsArbitraryLoads</key>
+<false/>
+<key>NSAllowsLocalNetworking</key>
+<true/>
+</dict>
+<key>NSAppleMusicUsageDescription</key>
+<string>Play using while you are hiking</string>
+<key>NSBluetoothAlwaysUsageDescription</key>
+<string>$(PRODUCT_NAME) needs access to Bluetooth to provide uninterrupted service.</string>
+<key>NSBluetoothPeripheralUsageDescription</key>
+<string>$(PRODUCT_NAME) requires access to Bluetooth peripherals to communicate with devices for various functionalities.</string>
+<key>NSCalendarsUsageDescription</key>
+<string>$(PRODUCT_NAME) would like to access your calendar to manage your events</string>
+<key>NSCameraUsageDescription</key>
+<string>$(PRODUCT_NAME) would like access to your photo gallery to upload photos and set profile picture</string>
+<key>NSContactsUsageDescription</key>
+<string>$(PRODUCT_NAME) requires contacts access to function properly.</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>$(PRODUCT_NAME) would like to track the order delivery location and estimate delivery time for the end customer</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>$(PRODUCT_NAME) would like to track the order delivery location and estimate delivery time for the end customer</string>
+<key>NSLocationUsageDescription</key>
+<string>$(PRODUCT_NAME) would like to track the order delivery location and estimate delivery time for the end customer</string>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>$(PRODUCT_NAME) would like to track the order delivery location and estimate delivery time for the end customer</string>
+<key>NSMicrophoneUsageDescription</key>
+<string>$(PRODUCT_NAME) needs access to your microphone for voice communication and recording features.</string>
+<key>NSMotionUsageDescription</key>
+<string>$(PRODUCT_NAME) collects location data in background and foreground mode to track the order delivery location and estimate delivery time for the end customer </string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>$(PRODUCT_NAME) would like access to your photo gallery to upload photos and set profile picture</string>
+<key>NSSiriUsageDescription</key>
+<string>$(PRODUCT_NAME) integrates with Siri to offer voice-based commands and functionality.</string>
+<key>NSSpeechRecognitionUsageDescription</key>
+<string>$(PRODUCT_NAME) uses speech recognition to improve user interaction and provide voice-based features.</string>
+<key>UIAppFonts</key>
+<array>
+<string>campton-book.ttf</string>
+<string>campton-light.ttf</string>
+<string>campton-medium.ttf</string>
+<string>campton-semibold.ttf</string>
+</array>
+<key>UIBackgroundModes</key>
+<array>
+<string>fetch</string>
+<string>location</string>
+<string>remote-notification</string>
+</array>
+<key>UILaunchStoryboardName</key>
+<string>LaunchScreen</string>
+<key>UIRequiredDeviceCapabilities</key>
+<array>
+<string>arm64</string>
+</array>
+<key>UISupportedInterfaceOrientations</key>
+<array>
+<string>UIInterfaceOrientationPortrait</string>
+</array>
+<key>UIViewControllerBasedStatusBarAppearance</key>
+<false/>
+</dict>
+</plist>
