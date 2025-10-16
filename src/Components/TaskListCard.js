@@ -22,6 +22,7 @@ import strings from '../constants/lang';
 import useInterval from '../utils/useInterval';
 import {appIds} from '../utils/constants/DynamicAppKeys';
 import {getBundleId} from 'react-native-device-info';
+import {safeCalculateCollection} from '../utils/paymentCalculations';
 const TaskListCard = ({
   data = {},
   allTasks = [],
@@ -166,43 +167,54 @@ const TaskListCard = ({
       style={{
         marginTop: isFromHistory ? getDynamicUpdateOnValues().marginTop : 0,
       }}>
-      {isFromHistory && data?.order_id != previousData?.order_id && (
-        <View
-          style={{
-            marginHorizontal: moderateScale(11),
-            backgroundColor: colors?.white,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            padding: moderateScale(8),
-            borderTopWidth: moderateScale(2),
-            borderTopRightRadius: moderateScale(8),
-            borderTopLeftRadius: moderateScale(8),
-            borderColor: colors?.themeColor,
-          }}>
-          {!!data?.order?.cash_to_be_collected ? (
-            <Text
-              style={{
-                fontFamily: fontFamily?.bold
-              }}
-            >
-              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.CASH_COLLECTED : 'Cash Collected :'} {data?.order?.status == 'completed'? data?.order?.cash_to_be_collected : 0}{' '}
-            </Text>
-          ) : (
-            <View />
-          )}
-          {!!data?.order?.driver_cost ? (
-            <Text
-              style={{
-                fontFamily: fontFamily?.bold
-              }}
-            >
-              {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.EARNING:'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
-            </Text>
-          ) : (
-            <View />
-          )}
-        </View>
-      )}
+      {isFromHistory && data?.order_id != previousData?.order_id && (() => {
+        const collectionData = safeCalculateCollection(data?.order);
+        const collectedAmount = data?.order?.status == 'completed' ? collectionData.totalAmount : 0;
+        return (
+          <View
+            style={{
+              marginHorizontal: moderateScale(11),
+              backgroundColor: colors?.white,
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              padding: moderateScale(8),
+              borderTopWidth: moderateScale(2),
+              borderTopRightRadius: moderateScale(8),
+              borderTopLeftRadius: moderateScale(8),
+              borderColor: colors?.themeColor,
+            }}>
+            {!!data?.order?.cash_to_be_collected ? (
+              <View>
+                <Text
+                  style={{
+                    fontFamily: fontFamily?.bold
+                  }}
+                >
+                  {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.CASH_COLLECTED : 'Cash Collected :'} AED {collectedAmount.toFixed(2)}
+                </Text>
+                {collectionData.includesDeliveryFees && (
+                  <Text style={{fontSize: textScale(9), opacity: 0.6, marginTop: moderateScale(2)}}>
+                    (Food: {collectionData.breakdown.customerPayment.toFixed(2)} + Delivery: {collectionData.breakdown.deliveryFees.toFixed(2)})
+                  </Text>
+                )}
+              </View>
+            ) : (
+              <View />
+            )}
+            {!!data?.order?.driver_cost ? (
+              <Text
+                style={{
+                  fontFamily: fontFamily?.bold
+                }}
+              >
+                {(getBundleId() == appIds.mrVeloz && defaultLanguagae?.value == 'es') ? strings.EARNING:'Earning :'} {data?.order?.status == 'completed' ? data?.order?.driver_cost : 0}
+              </Text>
+            ) : (
+              <View />
+            )}
+          </View>
+        );
+      })()}
 
       <View  style={{
             marginHorizontal: moderateScale(11),

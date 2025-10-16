@@ -48,6 +48,7 @@ export const REIMBURSEMENT = getApiUrl('api/agent/create/reimbursement');
 export const GETORDERDETAILFORTASK = getApiUrl(
   'edit-order/vendor/products/getProductsInCart',
 );
+export const RESTAURANT_PRODUCTS_AJAX = getApiUrl('restaurant/products/ajax');
 export const GETCANCELORDERREASONLIST = getApiUrl('api/order/cancel/reasons');
 export const CANCELORDER = getApiUrl('api/order/cancel/request/create');
 export const GETWEBURL = getApiUrl('api/payment');
