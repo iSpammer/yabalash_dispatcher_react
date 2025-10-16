@@ -15,6 +15,7 @@ import {
   GET_DAMAGE_TYPES,
   DAMAGE_REPORTS,
   GETORDERDETAILFORTASK,
+  RESTAURANT_PRODUCTS_AJAX,
   GETCANCELORDERREASONLIST,
   CANCELORDER,
   GETWEBURL,
@@ -147,6 +148,18 @@ export function getProductUpdateDetails(uri = '', data = {}, headers = {}) {
       })
       .catch(error => {
         console.log('error', error);
+        reject(error);
+      });
+  });
+}
+
+export function getRestaurantProducts(data = {}, headers = {}) {
+  return new Promise((resolve, reject) => {
+    apiGet(RESTAURANT_PRODUCTS_AJAX, data, headers)
+      .then(res => {
+        resolve(res);
+      })
+      .catch(error => {
         reject(error);
       });
   });

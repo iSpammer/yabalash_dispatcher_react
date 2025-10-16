@@ -48,7 +48,7 @@ export default {
   walk: require('../assets/images/ic_walk.png'),
   walkBlue: require('../assets/images/ic_walk_b.png'),
   pinBlue: require('../assets/images/ico_pin_blue.png'),
-  logo: require('../assets/images/Main_logo.png'),
+  logo: require('../assets/images/Yabalash_Rider_2.jpg'),
   pinRed: require('../assets/images/ic_pin.png'),
   dollor: require('../assets/images/ic_dollar.png'),
   customer: require('../assets/images/ic_customer.png'),

@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "installDebug": "react-native run-android --mode=yabalashDebug",
     "yabalashdispatcher": "react-native run-android --mode=yabalashDebug",
     "yabalashdispatcherRelease": "cd android && ./gradlew assembleyabalashRelease",
     "build_ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",

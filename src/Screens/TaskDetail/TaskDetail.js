@@ -1,5 +1,5 @@
 import {cloneDeep} from 'lodash';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useMemo, useRef, useState} from 'react';
 import {
   Alert,
   Animated,
@@ -32,6 +32,11 @@ import actions from '../../redux/actions';
 import colors from '../../styles/colors';
 import commonStylesFunc from '../../styles/commonStyles';
 import fontFamily from '../../styles/fontFamily';
+import {
+  safeCalculateCollection,
+  formatCurrency,
+  getCollectionLabel,
+} from '../../utils/paymentCalculations';
 navigator.geolocation = require('react-native-geolocation-service');
 
 import {
@@ -305,6 +310,8 @@ export default function TaskDetail({route, navigation}) {
       });
       _getproductUpdateDetails();
     }
+    
+    
     if (fromHistory) {
       if (
         taskDetail?.tasktype?.name == 'Drop' &&
@@ -333,6 +340,8 @@ export default function TaskDetail({route, navigation}) {
       });
   };
   console.log(taskDetail, 'taskDetail>>>>>>>>>>>>>>>>>>');
+
+
   const _getproductUpdateDetails = () => {
     actions
       .getProductUpdateDetails(new_dispatch_traking_url(), {})
@@ -372,23 +381,30 @@ export default function TaskDetail({route, navigation}) {
 
   const mapView = () => {
     return (
-      <MapView
-        ref={mapRef}
-        // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-        style={styles.map}
-        region={region}
-        initialRegion={region}
-        customMapStyle={mapStyle}
-        onRegionChangeComplete={_onRegionChange}>
-        <Marker
-          tracksViewChanges={false}
-          key={`coordinate_${taskDetail?.id}`}
-          image={imagePath.pinRed}
-          coordinate={{
-            latitude: Number(taskDetail?.location?.latitude),
-            longitude: Number(taskDetail?.location?.longitude),
-          }}></Marker>
-      </MapView>
+      <View style={{
+        marginHorizontal: moderateScale(15),
+        marginTop: moderateScale(10),
+        borderRadius: moderateScale(15),
+        overflow: 'hidden',
+      }}>
+        <MapView
+          ref={mapRef}
+          // provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+          style={[styles.map, {borderRadius: moderateScale(15)}]}
+          region={region}
+          initialRegion={region}
+          customMapStyle={mapStyle}
+          onRegionChangeComplete={_onRegionChange}>
+          <Marker
+            tracksViewChanges={false}
+            key={`coordinate_${taskDetail?.id}`}
+            image={imagePath.pinRed}
+            coordinate={{
+              latitude: Number(taskDetail?.location?.latitude),
+              longitude: Number(taskDetail?.location?.longitude),
+            }}></Marker>
+        </MapView>
+      </View>
     );
   };
 
@@ -642,17 +658,17 @@ export default function TaskDetail({route, navigation}) {
   const buttonView = () => {
     if (fromHistory) {
       return (
-        <View style={styles.container}>
+        <View style={[styles.container, {paddingHorizontal: moderateScale(15)}]}>
           <TouchableWithoutFeedback>
             <View
               style={[
                 styles.button,
                 {
-                  backgroundColor:
-                    taskDetail?.task_status == '4' ? '#27A468' : colors.redB,
+                  backgroundColor: taskDetail?.task_status == '4' ? '#27A468' : colors.redB,
+                  borderRadius: moderateScale(20),
                 },
               ]}>
-              <Text style={styles.text}>
+              <Text style={[styles.text, {fontFamily: fontFamily.bold}]}>
                 {taskDetail?.task_status == '4'
                   ? strings.TASKCOMPLTED
                   : strings.TASKCANCEL}
@@ -664,13 +680,15 @@ export default function TaskDetail({route, navigation}) {
     }
     return cancelRequestExit || paramData?.is_from_calendar ? null : (
       // return (
-      <View style={styles.container}>
+      <View style={[styles.container, {paddingHorizontal: moderateScale(15)}]}>
         <TouchableWithoutFeedback
           onPressIn={taskStatus == 3 ? redirectToDoneScreen : handlePressIn}
           onPressOut={handlePressOut}>
-          <View style={styles.button} onLayout={getButtonWidthLayout}>
-            <Animated.View style={[styles.bgFill, getProgressStyles()]} />
-            <Text style={styles.text}>{buttonText}</Text>
+          <View style={[styles.button, {
+            borderRadius: moderateScale(20),
+          }]} onLayout={getButtonWidthLayout}>
+            <Animated.View style={[styles.bgFill, getProgressStyles(), {borderRadius: moderateScale(20)}]} />
+            <Text style={[styles.text, {fontFamily: fontFamily.bold}]}>{buttonText}</Text>
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -776,12 +794,16 @@ export default function TaskDetail({route, navigation}) {
             <View
               style={{
                 ...styles.statusView,
-                backgroundColor: colors.greyLight3,
+                backgroundColor: (taskDetail?.tasktype?.name).toLowerCase() == 'drop' 
+                  ? colors.circularOrnage 
+                  : colors.circularBlue,
+                borderRadius: moderateScale(15),
               }}>
               <Text
                 style={{
                   ...styles.taskNameTextstyle,
-                  color: colors.black,
+                  color: colors.white,
+                  fontFamily: fontFamily.bold,
                 }}>
                 {`${
                   (taskDetail?.tasktype?.name).toLowerCase() == 'drop'
@@ -852,8 +874,12 @@ export default function TaskDetail({route, navigation}) {
           {(taskDetail?.tasktype?.name).toLowerCase() == 'drop' ? (
             <View
               style={{
-                backgroundColor: colors.transactionHistoryBg,
-                padding: moderateScale(8),
+                backgroundColor: colors.white,
+                borderRadius: moderateScale(15),
+                padding: moderateScale(12),
+                marginVertical: moderateScale(6),
+                borderLeftWidth: moderateScale(3),
+                borderLeftColor: colors.circularOrnage,
               }}>
               {!!(
                 taskDetail?.order?.Recipient_email ||
@@ -925,9 +951,14 @@ export default function TaskDetail({route, navigation}) {
                     source={imagePath?.location2}
                     style={{marginRight: moderateScale(5)}}
                   />
-                  <Text numberOfLines={2} style={styles.emailAndPhone}>
-                    {taskDetail?.location?.address}
-                  </Text>
+                  <View style={{flex: 1}}>
+                    <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, marginBottom: 2}]}>
+                      Deliver to: {taskDetail?.order?.customer?.name || ''}
+                    </Text>
+                    <Text numberOfLines={2} style={styles.emailAndPhone}>
+                      {apiData?.address?.address || taskDetail?.location?.address}
+                    </Text>
+                  </View>
                 </View>
               )}
               {/* Quantity and post code */}
@@ -971,12 +1002,129 @@ export default function TaskDetail({route, navigation}) {
                   </View>
                 )}
               </View>
+              
+              {/* Additional Order Information for Drop tasks */}
+              {taskDetail?.tasktype?.name?.toLowerCase() === 'drop' && (
+                <View style={{marginTop: moderateScale(15)}}>
+                  {/* Order Number and Restaurant */}
+                  <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: moderateScale(10)}}>
+                    {taskDetail?.order?.order_number && (
+                      <View style={{flex: 0.5}}>
+                        <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                          Order #
+                        </Text>
+                        <Text style={[styles.emailAndPhone, {fontSize: textScale(14)}]}>
+                          {taskDetail?.order?.order_number}
+                        </Text>
+                      </View>
+                    )}
+                    {taskDetail?.order?.task_description && (
+                      <View style={{flex: 0.5}}>
+                        <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                          Picked up from
+                        </Text>
+                        <Text style={[styles.emailAndPhone, {fontSize: textScale(14)}]}>
+                          {taskDetail?.order?.task_description.replace('Order From :', '').trim()}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                  
+                  {/* Pickup location address for reference */}
+                  {taskDetail?.order?.task?.length > 1 && taskDetail?.order?.task[0]?.location?.address && (
+                    <View style={{marginBottom: moderateScale(10)}}>
+                      <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                        Pickup Address
+                      </Text>
+                      <Text style={[styles.emailAndPhone, {fontSize: textScale(12), opacity: 0.7}]}>
+                        {taskDetail?.order?.task[0]?.location?.address}
+                      </Text>
+                    </View>
+                  )}
+                  
+                  {/* Smart Payment Collection Display */}
+                  {taskDetail?.order?.cash_to_be_collected && Number(taskDetail?.order?.cash_to_be_collected) > 0 && (() => {
+                    const collectionData = safeCalculateCollection(taskDetail?.order);
+                    const currencySymbol = 'AED'; // You can get this from API if available
+                    return (
+                      <View style={{marginBottom: moderateScale(10)}}>
+                        {/* Main Collection Amount */}
+                        <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                          {collectionData.orderType === 'B2B' ? 'Customer Payment' : 'Total to Collect'}
+                        </Text>
+                        <Text style={[styles.emailAndPhone, {fontSize: textScale(16), fontFamily: fontFamily.bold, color: colors.themeColor}]}>
+                          {currencySymbol} {collectionData.totalAmount.toFixed(2)}
+                        </Text>
+
+                        {/* Breakdown for B2C Orders */}
+                        {collectionData.includesDeliveryFees && collectionData.breakdown.deliveryFees > 0 && (
+                          <View style={{marginTop: moderateScale(8), paddingLeft: moderateScale(8), borderLeftWidth: 2, borderLeftColor: colors.lightGreyBg}}>
+                            <Text style={[styles.emailAndPhone, {fontSize: textScale(11), opacity: 0.6}]}>
+                              Food: {currencySymbol} {collectionData.breakdown.customerPayment.toFixed(2)}
+                            </Text>
+                            <Text style={[styles.emailAndPhone, {fontSize: textScale(11), opacity: 0.6}]}>
+                              Delivery Fee: {currencySymbol} {collectionData.breakdown.deliveryFees.toFixed(2)}
+                            </Text>
+                          </View>
+                        )}
+
+                        {/* Order Type Badge */}
+                        <View style={{marginTop: moderateScale(6), flexDirection: 'row', alignItems: 'center'}}>
+                          <View style={{
+                            backgroundColor: collectionData.orderType === 'B2B' ? colors.circularBlue : colors.circularOrnage,
+                            paddingHorizontal: moderateScale(8),
+                            paddingVertical: moderateScale(4),
+                            borderRadius: moderateScale(4),
+                          }}>
+                            <Text style={[styles.emailAndPhone, {fontSize: textScale(10), color: colors.white, fontFamily: fontFamily.bold}]}>
+                              {collectionData.orderType}
+                            </Text>
+                          </View>
+                          <Text style={[styles.emailAndPhone, {fontSize: textScale(10), opacity: 0.5, marginLeft: moderateScale(8)}]}>
+                            {collectionData.breakdown.note}
+                          </Text>
+                        </View>
+                      </View>
+                    );
+                  })()}
+                  
+                  {/* Flat Number if available */}
+                  {taskDetail?.location?.flat_no && (
+                    <View style={{marginBottom: moderateScale(10)}}>
+                      <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                        Flat/Unit Number
+                      </Text>
+                      <Text style={[styles.emailAndPhone, {fontSize: textScale(14)}]}>
+                        {taskDetail?.location?.flat_no}
+                      </Text>
+                    </View>
+                  )}
+                  
+                  {/* Products if API data is available */}
+                  {apiData?.vendors?.[0]?.products?.length > 0 && (
+                    <View style={{marginBottom: moderateScale(10)}}>
+                      <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                        Items ({apiData?.vendors?.[0]?.products?.length})
+                      </Text>
+                      {apiData?.vendors?.[0]?.products?.map((product, index) => (
+                        <Text key={index} style={[styles.emailAndPhone, {marginTop: 4}]}>
+                          • {product?.product_name} x{product?.quantity}
+                        </Text>
+                      ))}
+                    </View>
+                  )}
+                </View>
+              )}
             </View>
           ) : (
             <View
               style={{
-                backgroundColor: colors.transactionHistoryBg,
-                padding: moderateScale(8),
+                backgroundColor: colors.white,
+                borderRadius: moderateScale(15),
+                padding: moderateScale(12),
+                marginVertical: moderateScale(6),
+                borderLeftWidth: moderateScale(3),
+                borderLeftColor: colors.circularBlue,
               }}>
               {!!taskDetail?.order?.task_description && (
                 <View
@@ -1119,12 +1267,89 @@ export default function TaskDetail({route, navigation}) {
                     source={imagePath?.location2}
                     style={{marginRight: moderateScale(5)}}
                   />
-                  {!!taskDetail?.order?.task_description ? (
-                    <Text style={styles.emailAndPhone}>{vendors?.address}</Text>
-                  ) : (
-                    <Text style={styles.emailAndPhone}>
-                      {taskDetail?.location?.address}
+                  <View style={{flex: 1}}>
+                    {taskDetail?.tasktype?.name?.toLowerCase() === 'pickup' && (
+                      <>
+                        <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, marginBottom: 2}]}>
+                          Pickup from: {vendors?.name || ''}
+                        </Text>
+                      </>
+                    )}
+                    {!!taskDetail?.order?.task_description ? (
+                      <Text style={styles.emailAndPhone}>{vendors?.address}</Text>
+                    ) : (
+                      <Text style={styles.emailAndPhone}>
+                        {taskDetail?.location?.address}
+                      </Text>
+                    )}
+                  </View>
+                </View>
+              )}
+              
+              {/* Delivery address for Pickup tasks */}
+              {taskDetail?.tasktype?.name?.toLowerCase() === 'pickup' && 
+               taskDetail?.order?.task?.length > 1 &&
+               taskDetail?.order?.task[1]?.location?.address && (
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    marginTop: moderateScale(10),
+                    alignItems: 'center',
+                  }}>
+                  <Image
+                    source={imagePath?.location2}
+                    style={{marginRight: moderateScale(5), tintColor: colors.circularOrnage}}
+                  />
+                  <View style={{flex: 1}}>
+                    <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, marginBottom: 2}]}>
+                      Deliver to: {taskDetail?.order?.customer?.name || ''}
                     </Text>
+                    <Text numberOfLines={2} style={styles.emailAndPhone}>
+                      {taskDetail?.order?.task[1]?.location?.address}
+                    </Text>
+                  </View>
+                </View>
+              )}
+              
+              {/* Additional Order Information */}
+              {taskDetail?.tasktype?.name?.toLowerCase() === 'pickup' && (
+                <View style={{marginTop: moderateScale(15)}}>
+                  {/* Order Number and ETA */}
+                  <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: moderateScale(10)}}>
+                    {taskDetail?.order?.order_number && (
+                      <View style={{flex: 0.5}}>
+                        <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                          Order #
+                        </Text>
+                        <Text style={[styles.emailAndPhone, {fontSize: textScale(14)}]}>
+                          {taskDetail?.order?.order_number}
+                        </Text>
+                      </View>
+                    )}
+                    {apiData?.vendors?.[0]?.ETA && (
+                      <View style={{flex: 0.5}}>
+                        <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                          ETA
+                        </Text>
+                        <Text style={[styles.emailAndPhone, {fontSize: textScale(14)}]}>
+                          {apiData?.vendors?.[0]?.ETA}
+                        </Text>
+                      </View>
+                    )}
+                  </View>
+                  
+                  {/* Products Count - from existing order data */}
+                  {apiData?.vendors?.[0]?.products?.length > 0 && (
+                    <View style={{marginBottom: moderateScale(10)}}>
+                      <Text style={[styles.emailAndPhone, {fontFamily: fontFamily.bold, opacity: 0.7}]}>
+                        Items ({apiData?.vendors?.[0]?.products?.length})
+                      </Text>
+                      {apiData?.vendors?.[0]?.products?.map((product, index) => (
+                        <Text key={index} style={[styles.emailAndPhone, {marginTop: 4}]}>
+                          • {product?.product_name} x{product?.quantity}
+                        </Text>
+                      ))}
+                    </View>
                   )}
                 </View>
               )}
@@ -1395,28 +1620,34 @@ export default function TaskDetail({route, navigation}) {
                 {getDate(taskDetail?.order?.order_time)}
               </Text>
             </View>
-            {/* <Text style={styles.taskLable}>{strings.NAME}</Text> */}
-            {console.log(paramData,"sjahjsabsasv")}
-            {!!Number(taskDetail?.order?.cash_to_be_collected) > 0? (
+            {/* Smart Collection Display */}
+            {!!Number(taskDetail?.order?.cash_to_be_collected) > 0 ? (() => {
+              const collectionData = safeCalculateCollection(taskDetail?.order);
+              const currencySymbol = 'AED';
+              return (
+                <View style={{flex: 0.4}}>
+                  <Text style={styles.taskLable}>
+                    {collectionData.orderType === 'B2B' ? 'CUSTOMER PAYMENT' : 'TOTAL TO COLLECT'}
+                  </Text>
+                  <Text style={styles.taskLable}>{apiData?.payment_option?.title}</Text>
+                  <Text
+                    numberOfLines={1}
+                    style={[styles.emailAndPhone, {marginTop: moderateScale(5), fontFamily: fontFamily.bold}]}>
+                    {currencySymbol} {collectionData.totalAmount.toFixed(2)}
+                  </Text>
+                  {collectionData.includesDeliveryFees && collectionData.breakdown.deliveryFees > 0 && (
+                    <Text style={[styles.emailAndPhone, {fontSize: textScale(9), opacity: 0.6, marginTop: moderateScale(3)}]}>
+                      +{currencySymbol}{collectionData.breakdown.deliveryFees.toFixed(2)} delivery
+                    </Text>
+                  )}
+                </View>
+              );
+            })() : (
               <View style={{flex: 0.4}}>
                 <Text style={styles.taskLable}>
-                  {strings.CASHTOBECOLLECTED.toUpperCase()}
-                </Text>
-                <Text style={styles.taskLable} >{apiData?.payment_option?.title}</Text>
-                <Text
-                  numberOfLines={1}
-                  style={[styles.emailAndPhone, {marginTop: moderateScale(5)}]}>
-                  {Number(taskDetail?.order?.cash_to_be_collected).toFixed(2)}
+                  {apiData?.payment_option?.title?.toUpperCase()}
                 </Text>
               </View>
-            ): 
-            (
-              <View style={{flex: 0.4}}>
-                <Text style={styles.taskLable}>
-                  {apiData?.payment_option?.title.toUpperCase()}
-                </Text>        
-              </View>
-
             )}
           </View>
 
@@ -1602,7 +1833,7 @@ export default function TaskDetail({route, navigation}) {
   const appleCoordinate = {
     latitude: Number(taskDetail?.location?.latitude),
     longitude: Number(taskDetail?.location?.longitude),
-    end: `${taskDetail?.location?.address}`,
+    end: `${apiData?.address?.address || taskDetail?.location?.address}`,
     start: 'My Location',
     provider: 'apple',
     //travelType: 'drive',
@@ -1676,7 +1907,7 @@ export default function TaskDetail({route, navigation}) {
   // this funtion use for camera handle
   const onPressMapChoice = index => {
     if (index == 0) {
-      const url = 'maps:' + '?q=' + taskDetail?.location?.address;
+      const url = 'maps:' + '?q=' + (apiData?.address?.address || taskDetail?.location?.address);
       Linking.openURL(url);
     }
     if (index == 1) {
